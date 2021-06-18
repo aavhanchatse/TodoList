@@ -9,12 +9,14 @@ import 'package:web_socket_channel/io.dart';
 class TodoListModel with ChangeNotifier {
   List<Task> todo = [];
   int? taskCount;
+
   bool loading = true;
+
   final String _rpcUrl = 'http://192.168.29.84:7545';
   final String _wsUrl = 'ws://192.168.29.84:7545/';
 
   final String _privateKey =
-      '7a760a5a8a019e588dd5d48a9e91f6a54a9fc3938e7037c756727ecd8549d879';
+      'd896ccf27953ac671255762946cfbcdc45872bdbef71ab37b895ed8f964044d2';
 
   String? _abiCode;
 
@@ -98,7 +100,7 @@ class TodoListModel with ChangeNotifier {
       todo.add(Task(taskName: temp[0], isCompleted: temp[1]));
     }
 
-    print(todo);
+    print('todo: $todo');
     loading = false;
 
     notifyListeners();
